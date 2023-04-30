@@ -1,0 +1,82 @@
+.cartInfo {
+    position: absolute;
+    top: 5rem;
+    right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    color: #cfcfcf;
+    border: 1px solid #cfcfcf;
+}
+
+.cartItem {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.image {
+    height: 50px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.price {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #d1d1d1;
+}
+
+.remove {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #d1d1d1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.remove:hover {
+    color: #cc2e2e;
+}
+
+.total {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    padding-top: 1rem;
+}
+
+.checkout {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.productPrice {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
