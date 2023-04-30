@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import swr from 'swr'
+import Navbar from '@/components/Navbar/Navbar'
 import ProductCard from '@/components/ProductCard/ProductCard'
 import { Product } from '@prisma/client'
 
@@ -18,6 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
       <main className={styles.main}>
         {error && <div>Failed to load</div>}
         {!data && <div>Loading...</div>}
