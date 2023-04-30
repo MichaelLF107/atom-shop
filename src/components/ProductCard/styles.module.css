@@ -1,0 +1,49 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #1c1c1c;
+    transition: all 0.3s ease;
+    padding: 1rem;
+}
+
+.image img {
+    width: auto;
+    height: 250px;
+    border-radius: 8px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #cfcfcf;
+}
+
+.price {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #2ecc71;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2ecc71;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.actions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
