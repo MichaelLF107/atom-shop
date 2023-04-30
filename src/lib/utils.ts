@@ -1,3 +1,9 @@
+import { Product as DBProduct } from '@prisma/client'
+
+interface Product extends DBProduct {
+    quantity: number
+}
+
 export function convertPrice(price: number) {
     const priceString = price.toString()
     const priceParts = priceString.split('.')
@@ -13,4 +19,10 @@ export function convertPrice(price: number) {
         }
     }
     return '0.00'
+}
+
+export function getTotalPrice(products: Product[]) {
+    return products.reduce((acc, product) => {
+        return acc + product.price * product.quantity
+    }, 0)
 }
