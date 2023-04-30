@@ -22,7 +22,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 $ {convertPrice(product.price)}
             </div>
             <div className={styles.actions}>
-                <Button variant="contained" color="primary" onClick={() => addProduct(product)}>
+                <Button variant="contained" color="primary" onClick={() => addProduct({...product, quantity: 1 })}>
                     <AddShoppingCartIcon fontSize='inherit' />
                     Add to cart
                 </Button>
