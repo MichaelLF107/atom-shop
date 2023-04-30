@@ -1,0 +1,34 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1c1c1c;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.cart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
