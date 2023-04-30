@@ -1,6 +1,10 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-import { Product } from '.prisma/client'
+import { Product as DBProduct } from '@prisma/client'
+
+interface Product extends DBProduct {
+    quantity: number
+}
 
 interface CartStore {
     products: Product[]
@@ -15,9 +19,22 @@ export const useCartStore = create<CartStore>()(
             (set) => ({
                 products: [],
                 addProduct: (product) =>
-                    set((state) => ({
-                        products: [...state.products, product],
-                    })),
+                    set((state) => {
+                        const productIndex = state.products.findIndex(
+                            (p) => p.id === product.id
+                        )
+                        if (productIndex === -1) {
+                            return {
+                                products: [
+                                    ...state.products,
+                                    { ...product, quantity: 1 },
+                                ],
+                            }
+                        }
+                        const newProducts = [...state.products]
+                        newProducts[productIndex].quantity += 1
+                        return { products: newProducts }
+                    }),
                 removeProduct: (product) =>
                     set((state) => ({
                         products: state.products.filter(
