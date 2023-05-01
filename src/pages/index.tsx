@@ -3,12 +3,15 @@ import styles from '@/styles/Home.module.css'
 import swr from 'swr'
 import Navbar from '@/components/Navbar/Navbar'
 import ProductCard from '@/components/ProductCard/ProductCard'
+import PurchaseModal from '@/components/PurchaseModal/PurchaseModal'
 import { Product } from '@prisma/client'
+import { useModalStore } from '@/store/ModalStore'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Home() {
   const { data, error } = swr('/api/getProducts', fetcher)
+  const { isOpen, openModal, closeModal } = useModalStore()
   let products = data?.products
 
   return (
@@ -25,6 +28,7 @@ export default function Home() {
         {!data && <div>Loading...</div>}
         {products && products.map((product: Product) => <ProductCard key={product.id} product={product} />)}
       </main>
+      <PurchaseModal isOpen={isOpen} onClose={() => closeModal()} />
     </>
   )
 }
