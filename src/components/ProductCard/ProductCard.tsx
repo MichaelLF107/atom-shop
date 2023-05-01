@@ -4,9 +4,19 @@ import { convertPrice } from '@/lib/utils'
 import { Button } from '@mui/material'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 import { useCartStore } from '@/store/CartStore'
+import { useModalStore } from '@/store/ModalStore'
+import { useBuyNowStore } from '@/store/BuyNowStore'
 
 export default function ProductCard({ product }: { product: Product }) {
-    const { addProduct} = useCartStore()
+    const { addProduct } = useCartStore()
+    const { openModal } = useModalStore()
+    const { setProduct } = useBuyNowStore()
+
+    function handleBuyNow() {
+        setProduct(product)
+        openModal()
+    }
+
     return (
         <div className={styles.card}>
             <div className={styles.image}>
@@ -26,7 +36,9 @@ export default function ProductCard({ product }: { product: Product }) {
                     <AddShoppingCartIcon fontSize='inherit' />
                     Add to cart
                 </Button>
-                <Button variant="outlined" color="primary">$ Buy now</Button>
+                <Button variant="outlined" color="primary" onClick={() => handleBuyNow()}>
+                    $ Buy now
+                </Button>
             </div>
         </div>
     )

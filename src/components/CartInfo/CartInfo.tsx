@@ -4,6 +4,7 @@ import { getTotalPrice, convertPrice } from '@/lib/utils'
 import { ClickAwayListener } from '@mui/base'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
 import { Button } from '@mui/material'
+import { useModalStore } from '@/store/ModalStore'
 
 interface CartInfoProps {
     isCartOpen: boolean;
@@ -13,6 +14,7 @@ interface CartInfoProps {
 export default function CartInfo({ isCartOpen, closeCart }: CartInfoProps) {
     if (!isCartOpen) return null
     const { products, removeProduct } = useCartStore()
+    const { openModal } = useModalStore()
 
     return (
         <ClickAwayListener onClickAway={closeCart}>
@@ -38,7 +40,7 @@ export default function CartInfo({ isCartOpen, closeCart }: CartInfoProps) {
                             <span>Total:</span>
                             <span>${getTotalPrice(products)}</span>
                         </div>
-                        <Button variant="contained" color="primary">
+                        <Button variant="contained" color="primary" onClick={() => openModal()}>
                             Checkout
                         </Button>
                     </div>
